@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>semin park — product engineer</title>
+  <meta name="description" content="product engineer at oracle. server and gpu hardware, prototype to production.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #FDFCF9;
+      --text: #131311;
+      --text-body: #444441;
+      --text-muted: #888780;
+      --text-dim: #B4B2A9;
+      --border: rgba(19, 19, 17, 0.08);
+      --border-strong: rgba(19, 19, 17, 0.2);
+      --accent: #993C1D;
+      --transition: 220ms ease;
+    }
+
+    body.dark {
+      --bg: #131311;
+      --text: #F4EFE5;
+      --text-body: #B4B2A9;
+      --text-muted: #888780;
+      --text-dim: #55554f;
+      --border: rgba(244, 239, 229, 0.08);
+      --border-strong: rgba(244, 239, 229, 0.2);
+      --accent: #D4956B;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Geist Mono', ui-monospace, 'SF Mono', monospace;
+      background: var(--bg);
+      color: var(--text-body);
+      font-size: 14px;
+      line-height: 1.8;
+      transition: background var(--transition), color var(--transition);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 640px; margin: 0 auto; padding: 0 28px; }
+
+    nav {
+      padding: 28px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo { font-weight: 500; font-size: 14px; color: var(--text); }
+
+    .nav-meta { display: flex; align-items: center; gap: 16px; font-size: 12px; color: var(--text-dim); }
+
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border-strong);
+      border-radius: 4px;
+      padding: 4px 10px;
+      cursor: pointer;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 12px;
+      transition: border-color var(--transition);
+    }
+    .theme-toggle:hover { border-color: var(--text); }
+
+    .hero { padding: 64px 0 48px; animation: fadeUp 500ms ease-out; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero p {
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--text);
+      max-width: 540px;
+    }
+
+    .hero a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      transition: opacity var(--transition);
+    }
+    .hero a:hover { opacity: 0.6; }
+
+    .tree {
+      padding: 32px 0 16px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      line-height: 2.2;
+    }
+
+    .tree a {
+      color: var(--text);
+      text-decoration: none;
+      transition: opacity var(--transition);
+    }
+    .tree a:hover { opacity: 0.6; }
+    .tree .branch { color: var(--text-dim); }
+    .tree .meta { color: var(--text-dim); }
+    .tree .contact-link { color: var(--accent); }
+
+    section { padding: 48px 0 8px; }
+
+    .section-label {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-bottom: 20px;
+      letter-spacing: 0.04em;
+    }
+
+    .item {
+      display: block;
+      padding: 14px 0;
+      border-top: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: padding-left var(--transition);
+    }
+    .item:hover { padding-left: 8px; }
+    .item:hover .item-title::after { content: ' ->'; color: var(--accent); }
+
+    .item-title { font-size: 14px; font-weight: 500; color: var(--text); }
+    .item-desc { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+    .item-meta { font-size: 12px; color: var(--text-dim); float: right; }
+
+    .now-line { padding: 6px 0; font-size: 13px; }
+    .now-line .label { color: var(--text-dim); display: inline-block; min-width: 96px; }
+    .now-line .value { color: var(--text); }
+
+    footer {
+      padding: 64px 0 48px;
+      margin-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    footer .cta { font-size: 15px; color: var(--text); margin-bottom: 20px; }
+    footer .cta a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+    }
+    footer .cta a:hover { opacity: 0.6; }
+
+    footer .links { font-size: 12px; color: var(--text-dim); }
+    footer .links a { color: var(--text-muted); text-decoration: none; }
+    footer .links a:hover { color: var(--text); }
+
+    @media (max-width: 560px) {
+      .container { padding: 0 20px; }
+      .hero { padding: 40px 0 36px; }
+      .hero p { font-size: 14px; }
+      .tree { font-size: 12px; }
+      .item-meta { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <nav>
+      <div class="logo">semin park</div>
+      <div class="nav-meta">
+        <span>pdx &middot; 2026</span>
+        <button class="theme-toggle" id="themeToggle" aria-label="toggle theme"><span id="themeIcon">dark</span></button>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <p>product engineer at <a href="#work">oracle</a>. before that, <a href="#work">intel</a>. i work with cpu/gpu based server rack product ownership and also like to work with data.</p>
+    </div>
+
+    <div class="tree">
+      <span class="branch">&#9500;&#9472;&#9472;</span> <a href="#work">work/</a> <span class="meta">3 roles</span><br>
+      <span class="branch">&#9500;&#9472;&#9472;</span> <a href="#notes">notes/</a> <span class="meta">coming soon</span><br>
+      <span class="branch">&#9500;&#9472;&#9472;</span> <a href="#now">now.txt</a> <span class="meta">updated jun 2026</span><br>
+      <span class="branch">&#9492;&#9472;&#9472;</span> <a href="#contact" class="contact-link">contact.md</a> <span class="meta">&#8592; say hi</span>
+    </div>
+
+    <section id="work">
+      <div class="section-label">work/</div>
+      <a class="item" href="#">
+        <span class="item-meta">2022&ndash;26</span>
+        <div class="item-title">oracle &mdash; product engineer</div>
+        <div class="item-desc">npi and sustaining operations for cpu/gpu server rack products, rack ownership from prototype to high-volume production &mdash; $30m+ shipped annually</div>
+      </a>
+      <a class="item" href="#">
+        <span class="item-meta">2021&ndash;22</span>
+        <div class="item-title">intel &mdash; process engineer</div>
+        <div class="item-desc">euv/duv lithography &mdash; tuned processes and drove tool uptime to keep wafers moving through the fab at optimal throughput</div>
+      </a>
+      <a class="item" href="#">
+        <span class="item-meta">2020&ndash;21</span>
+        <div class="item-title">collab health &mdash; electrical engineer</div>
+        <div class="item-desc">designed and prototyped a pharmacy compounding device &mdash; precise, automated dispensing of liquid formulations to exact specs</div>
+      </a>
+    </section>
+
+    <section id="notes">
+      <div class="section-label">notes/</div>
+      <a class="item" href="#">
+        <span class="item-meta">soon</span>
+        <div class="item-title">writing in progress</div>
+        <div class="item-desc">process notes from the factory floor, eventually</div>
+      </a>
+    </section>
+
+    <section id="now">
+      <div class="section-label">now.txt</div>
+      <div class="now-line"><span class="label">building</span> <span class="value">this website, for one</span></div>
+      <div class="now-line"><span class="label">reading</span> <span class="value">&mdash;</span></div>
+      <div class="now-line"><span class="label">learning</span> <span class="value">ai tools</span></div>
+      <div class="now-line"><span class="label">status</span> <span class="value">open to interesting problems</span></div>
+    </section>
+
+    <footer id="contact">
+      <div class="cta">got something interesting? <a href="mailto:seminp@yahoo.com">seminp@yahoo.com</a></div>
+      <div class="links"><a href="https://www.linkedin.com/in/semin-park/">linkedin</a> &middot; &copy; 2026 &middot; made in portland</div>
+    </footer>
+
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const icon = document.getElementById('themeIcon');
+    const body = document.body;
+
+    let saved = null;
+    try { saved = localStorage.getItem('theme'); } catch(e) {}
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (saved === 'dark' || (!saved && prefersDark)) {
+      body.classList.add('dark');
+      icon.textContent = 'light';
+    }
+
+    toggle.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      const isDark = body.classList.contains('dark');
+      icon.textContent = isDark ? 'light' : 'dark';
+      try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch(e) {}
+    });
+  </script>
+</body>
+</html>
